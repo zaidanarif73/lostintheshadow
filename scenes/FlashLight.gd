@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var spotlight = get_node("Glass/SpotLight3D")
+@onready var SKILL_BTN = $SkillBtn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -8,5 +9,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("skill"):
+	if Input.is_action_just_pressed("skill") or SKILL_BTN.is_pressed():
 		spotlight.visible = !spotlight.visible

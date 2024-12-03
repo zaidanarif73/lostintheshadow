@@ -1,12 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3ffql15mo0aj"]
+[gd_scene load_steps=21 format=3 uid="uid://c3ffql15mo0aj"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_pgc1p"]
 [ext_resource type="Script" path="res://controllers/weapon_rig.gd" id="2_jqy4g"]
 [ext_resource type="PackedScene" uid="uid://do8xenafpyngu" path="res://scenes/weapon.tscn" id="3_05d8o"]
 [ext_resource type="PackedScene" uid="uid://bu6pe23ray0l3" path="res://scenes/medkit.tscn" id="3_kq2to"]
 [ext_resource type="PackedScene" uid="uid://cqtfc61ovy2v5" path="res://scenes/key.tscn" id="4_7n8t0"]
+[ext_resource type="Texture2D" uid="uid://cv42m3p4ru4db" path="res://controllers/switch-on-off-button.png" id="4_rtslb"]
 [ext_resource type="Script" path="res://controllers/WeaponViewport.gd" id="4_t6vkx"]
 [ext_resource type="Script" path="res://controllers/WeaponCamera.gd" id="6_lgbcu"]
+[ext_resource type="Texture2D" uid="uid://kwocf7gfrsfd" path="res://controllers/swap_button.png" id="7_xo4kf"]
+[ext_resource type="Texture2D" uid="uid://ivoj52ncrdrl" path="res://controllers/jump_button.png" id="10_jy24v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vvpnu"]
 
@@ -141,6 +144,15 @@ libraries = {
 }
 speed_scale = 4.0
 
+[node name="SkillBtn" type="TextureButton" parent="CameraController/Camera3D/WeaponRig/Weapon"]
+offset_left = 989.0
+offset_top = 488.0
+offset_right = 1123.0
+offset_bottom = 619.0
+texture_normal = ExtResource("4_rtslb")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Medkit" parent="CameraController/Camera3D/WeaponRig" instance=ExtResource("3_kq2to")]
 transform = Transform3D(0.01, 1.55431e-15, 1.77636e-15, -7.59392e-16, 0.008999, 0.00436095, -5.32907e-15, -0.00436095, 0.008999, 4.38611e-08, -0.11739, -0.188902)
 visible = false
@@ -160,6 +172,15 @@ libraries = {
 "": SubResource("AnimationLibrary_rdi01")
 }
 speed_scale = 4.0
+
+[node name="SwapBtn" type="TextureButton" parent="CameraController/Camera3D/WeaponRig"]
+offset_left = 813.0
+offset_top = 486.0
+offset_right = 948.0
+offset_bottom = 623.0
+texture_normal = ExtResource("7_xo4kf")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="CameraController/Camera3D"]
 update_mode = 1
@@ -184,3 +205,12 @@ cull_mask = 1048574
 current = true
 script = ExtResource("6_lgbcu")
 MAIN_CAMERA = NodePath("../../../CameraController/Camera3D/WeaponRig")
+
+[node name="JumpBtn" type="TextureButton" parent="."]
+offset_left = 993.0
+offset_top = 334.0
+offset_right = 1125.0
+offset_bottom = 470.0
+texture_normal = ExtResource("10_jy24v")
+ignore_texture_size = true
+stretch_mode = 0

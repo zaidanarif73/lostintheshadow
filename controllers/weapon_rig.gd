@@ -7,6 +7,7 @@ extends Node3D
 @onready var senter_animation = $Weapon/SenterAnimation
 @onready var medkit_animation = $Medkit/MedkitAnimation
 @onready var key_animation = $Key/KeyAnimation
+@onready var SWAP_BTN = $SwapBtn
 # Array of weapon types
 var weapons = ["senter", "medkit", "key"]
 var current_weapon_index = 0
@@ -18,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("change_weapon"):
+	if Input.is_action_just_pressed("change_weapon") or SWAP_BTN.is_pressed() :
 		_change_weapon()
 
 func _change_weapon() -> void:
